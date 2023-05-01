@@ -1,27 +1,27 @@
 import styled, { css } from 'styled-components'
 
 
-export const LoginContainer = styled.div`
-
-    min-width: 450px;
+export const RegisterContainer = styled.div`
     box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.75);
     padding: 2rem;
     border: 1px solid #A3AFA7;
     border-radius: 10px;
     background-color: white;
+    max-width: 400px;
+    width: 100%;
+    margin: 1rem;
+
     
     .title {
-        width: 90%;
+        width: 100%;
         margin: 1rem auto;
     }
     .subtitle {
-        margin-bottom: .5rem;
         font-size: 1.3rem;
         font-weight: 700;
     }
     
     .description {
-        margin-bottom: 1.5rem;
         font-size: 0.8rem;
         font-weight: 300;
     }
@@ -31,16 +31,15 @@ export const LoginContainer = styled.div`
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 0rem;
+        gap: .5rem;
         width: 100%;
     }
     
     .inputs {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
-        width: 90%;
-        margin-bottom: 0.7rem;
+        gap: 0rem;
+        width: 100%;
     }
 
     .inputs label {
@@ -55,16 +54,22 @@ export const LoginContainer = styled.div`
         font-size: 0.7rem;
     }
 
+    .errorMessage {
+        font-size: 0.7rem;
+        max-width: 400px;
+        color: red;
+    }
+
     #buttonSubmit {
-        width: 90%;
+        width: 100%;
         padding-block: .7rem;
         border-radius: 10px;
         border: none;
-        background-color: #53846A;
+        background-color: #071A84;
         color: white;
-        margin: 1rem 0 2rem 0;
         cursor: pointer;
         transition: .5s;
+        margin-top: .5rem;
     }
 
     #buttonSubmit:hover {
@@ -74,10 +79,11 @@ export const LoginContainer = styled.div`
     .text-login {
         text-align: center;
         font-size: 0.8rem;
+        margin-top: 1rem;
     }
 
     .text-login span {
-        color: #53846A;
+        color: #071A84;
         font-weight: 700;
         cursor: pointer;
         transition: .5s;
