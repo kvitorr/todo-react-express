@@ -11,19 +11,26 @@ export const TaskWrapper = styled.div`
     padding: .5rem 1rem;
 
     border-radius: 10px;
-    box-shadow: 0px 0.5px 1px 0.5px #D9DCE1;
-    background-color: white;
+    box-shadow: 0px 0.5px 1px 0.5px var(--box-shadow-color);
+    background-color: var(--background-color-secundary);
 
     position: relative;
+
+    .description {
+        max-width: 100%;
+        word-wrap: break-word;
+    }
+
 
     .iconWrapper {
         display: flex;
         align-items: center;
         
         position: absolute;
-        top: 50%;
         right: 0;
-        transform: translate(-20%, -51%);
+        top: 0;
+
+        transform: translate(-10%, 5%);
 
         padding: 0.4rem;
 

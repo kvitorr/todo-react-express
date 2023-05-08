@@ -5,12 +5,13 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { router } from './Router'
 import { GlobalStyle } from './styles/global'
-
-
+import { ListProvider } from './context/ListContext'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>  
     <GlobalStyle/>
-    <RouterProvider router={router}/>
+    <ListProvider>
+      <RouterProvider router={router}/>
+    </ListProvider>
   </React.StrictMode>,
 )

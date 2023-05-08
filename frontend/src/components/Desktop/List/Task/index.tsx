@@ -1,13 +1,12 @@
 import React from 'react'
 import { TaskWrapper } from './styles'
 import { PencilSimple } from '@phosphor-icons/react'
+import { ITaskProps } from '..'
 
-
-
-export const Task = () => {
+export const Task: React.FC<ITaskProps> = ({id, content}) => {
   return (
     <TaskWrapper>
-        <p className='description'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus minus itaque velit odio ea fugit </p>
+        <p className='description'>{content}</p>
         <div className='iconWrapper'>
             <PencilSimple size={16}/>
         </div>

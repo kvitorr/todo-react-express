@@ -1,13 +1,14 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import { GlobalStyle } from './styles/global'
+import { Outlet } from 'react-router-dom' 
+import { Header } from './components/Header'
+import './styles.css'
+
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div>
-      <h1>teste</h1>
+    <div className="app">
+      <Header/>
+      <Outlet/>
     </div>
   )
 }

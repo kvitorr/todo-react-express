@@ -11,6 +11,9 @@ export const ListWrapper = styled.div`
 
     max-height: 100%;
 
+    display: flex;
+    flex-direction: column;
+
     .listHeader {
         display: flex;
         justify-content: space-between;
@@ -27,9 +30,7 @@ export const ListWrapper = styled.div`
         
         gap: 0.5rem;
         padding-inline: 0.3rem;
-        
-        max-height: 510px;
-        
+                
         overflow-y: scroll;
     }
 
@@ -49,7 +50,7 @@ export const ListWrapper = styled.div`
         background-color: #555;
     }
 
-    .buttonAddNewTask {
+    .buttonAddNewCard {
         margin-top: 0.5rem;
         width: 100%;
         padding: 0.5rem 1rem;
@@ -67,7 +68,54 @@ export const ListWrapper = styled.div`
         cursor: pointer;
     }
 
-    .buttonAddNewTask:hover {
+    .buttonAddNewCard:hover {
         background-color: #D5D9DF;
     }
+
+    .wrapperNewTask {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .inputNewTask {
+        padding: .5rem 1rem;
+    
+        border-radius: 10px;
+        border: none;
+        box-shadow: 0px 0.5px 1px 0.5px var(--box-shadow-color);
+        background-color: var(--background-color-secundary);
+
+        resize: none;
+
+        overflow-wrap: break-word;
+        resize: vertical;
+        height: 50px;
+    }
+
+    .inputNewTask:focus {
+        outline: none;
+    }
+
+    .wrapperButtons {
+        margin-top: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .wrapperButtons > * {
+        cursor: pointer;
+    }
+
+    .buttonAddNewTask {
+        background-color: blueviolet;
+        padding: 0.5rem;
+        width: 50%;
+        border-radius: 5px;
+        border: none;
+
+        color: white;
+    }
+
+
 `

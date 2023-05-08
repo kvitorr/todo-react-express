@@ -2,22 +2,20 @@ import { createGlobalStyle } from 'styled-components'
 
 
 export const GlobalStyle = createGlobalStyle`
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Roboto', sans-serif;    
-    }
     
-    body {
-        min-height: 100vh;
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
     }
 
-    /*#root {
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #3A54AA;
-    }*/
+    :root {
+        --background-color-primary: #F7F8F9;
+        --background-color-secundary: #FFFFFF;
+        --background-color-terciary: #C9C7C7;
+
+        --background-color-hover: #D5D9DF;
+        --box-shadow-color: #D9DCE1;
+    }
+    
 `
