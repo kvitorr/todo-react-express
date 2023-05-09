@@ -21,7 +21,14 @@ export const ListWrapper = styled.div`
         font-size: 0.9rem;
         font-weight: 500;
 
+        gap: .5rem;
+
         padding: 0.5rem 1rem 1rem 1rem;
+    }
+
+    .listHeader > p {
+        word-wrap: break-word;
+        width: 240px;
     }
 
     .listDos {
@@ -32,6 +39,8 @@ export const ListWrapper = styled.div`
         padding-inline: 0.3rem;
                 
         overflow-y: scroll;
+        scroll-margin-bottom: 9999px;
+        scroll-padding-bottom: 0;
     }
 
 
@@ -85,11 +94,9 @@ export const ListWrapper = styled.div`
         box-shadow: 0px 0.5px 1px 0.5px var(--box-shadow-color);
         background-color: var(--background-color-secundary);
 
+        overflow: hidden;
         resize: none;
-
-        overflow-wrap: break-word;
-        resize: vertical;
-        height: 50px;
+        height: auto;
     }
 
     .inputNewTask:focus {

@@ -10,6 +10,9 @@ export const DesktopWrapper = styled.div`
    overflow-x: auto;
    background-color: green;
 
+   scroll-behavior: smooth;
+  scroll-margin-left: 99999px;
+
    ::-webkit-scrollbar {
         height: 10px;
         width: 5px;
