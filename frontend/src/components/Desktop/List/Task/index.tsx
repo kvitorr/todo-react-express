@@ -4,6 +4,7 @@ import { Eraser, PencilSimple, Trash, TrashSimple, X } from '@phosphor-icons/rea
 import { ITask } from '../..'
 import { ListContext } from '../../../../context/ListContext'
 import { deepCopy } from '../../../../utils/deepCopy'
+import { TaskContext } from '../../../../context/TaskContext'
 
 export const Task: React.FC<ITask> = ({id, idList, content}) => {
   const { lists, setLists } = useContext(ListContext)
@@ -14,9 +15,13 @@ export const Task: React.FC<ITask> = ({id, idList, content}) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const divInputRef = useRef<HTMLDivElement>(null);
 
+  const {tasks, setTasks} = useContext(TaskContext)
+
+
   function handleClickFora(event: MouseEvent) {
     if (divInputRef.current && !divInputRef.current.contains(event.target as Node)) {
       setExibirTask(true);
+      setNewContentTask(oldContentTask)
     }
   }
 
@@ -67,13 +72,9 @@ export const Task: React.FC<ITask> = ({id, idList, content}) => {
 
   const handleDeleteTask = () => {
     setExibirTask(!exibirTask)
-    const copyLists = deepCopy(lists)
-    const list = copyLists.find(task => task.id == idList)
 
-    if(list) {
-      list.tasks = list.tasks.filter((task) => task.id !== id)
-      setLists(copyLists)
-    }
+    const filteredTasks = tasks.filter((task) => task.id !== id)
+    setTasks(filteredTasks)
   }
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef } from 'react'
+import React, { useState, useContext, useRef, useEffect } from 'react'
 import { DesktopWrapper } from './styles'
 import List from './List'
 import { ListButton } from './ListButton'
@@ -14,20 +14,30 @@ export interface ITask {
 export interface IList { 
   id: string 
   title: string
-  tasks:  ITask[]
 }
 
 const Desktop = () => {
-  const { lists, setLists } = useContext(ListContext)
+  const { lists } = useContext(ListContext)
+
+  const desktopWrapperDiv = useRef<HTMLDivElement>(null);
+  const [exibirBotao, setExibirBotao] = useState(true)
+
+
+  useEffect(() => {
+    const desktop = desktopWrapperDiv.current;
+    if (desktop) {
+      desktop.scrollLeft = 100000000000000;
+    }
+  }, [exibirBotao]);
 
   return (
-    <DesktopWrapper >
+    <DesktopWrapper ref={desktopWrapperDiv}>
         {
           lists.map((list) => {
             return <List key={list.id} {...list}/>
           })
         }
-        <ListButton/>
+        <ListButton exibirBotao={exibirBotao} setExibirBotao={setExibirBotao}/>
     </DesktopWrapper>
   )
 }

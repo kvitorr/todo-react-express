@@ -6,9 +6,13 @@ import { IList } from '..'
 import { deepCopy } from '../../../utils/deepCopy'
 
 
-export const ListButton: React.FC = () => {
+interface ListButtonProps {
+  exibirBotao: boolean,
+  setExibirBotao: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-  const [exibirBotao, setExibirBotao] = useState(true)
+export const ListButton: React.FC<ListButtonProps> = ({exibirBotao, setExibirBotao}) => {
+
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const divInputRef = useRef<HTMLDivElement>(null);
   const [newListContent, setNewListContent] = useState('');
@@ -26,6 +30,7 @@ export const ListButton: React.FC = () => {
 
   function handleClickFora(event: MouseEvent) {
     if (divInputRef.current && !divInputRef.current.contains(event.target as Node)) {
+      setNewListContent('')
       setExibirBotao(true);
     }
   }
@@ -56,12 +61,12 @@ export const ListButton: React.FC = () => {
   }
 
   const handleAddList = () => {
+
     const copyLists = deepCopy(lists)
 
     const newList: IList = {
       id: String(lists.length + 1),
       title: newListContent,
-      tasks:  []
     }
 
     copyLists.push(newList)
@@ -84,12 +89,14 @@ export const ListButton: React.FC = () => {
       {
       exibirBotao ?  (
         <ListButtonWrapper>
-          <div className='buttonContent' onClick={() => {handleClick}}>
-            <Plus size={16} />
-            <p>
-                Adicionar uma Lista
-            </p>
-          </div>
+          <button className='buttonWrapper'>
+            <div className='buttonContent' onClick={handleClick}>
+              <Plus size={16} />
+              <p>
+                  Adicionar uma Lista
+              </p>
+            </div>
+          </button>
         </ListButtonWrapper>
         ) : (
           <ListButtonWrapper>

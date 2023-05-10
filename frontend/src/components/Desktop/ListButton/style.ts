@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ListButtonWrapper = styled.button`
+export const ListButtonWrapper = styled.div`
     width: 260px;
     flex-shrink: 0;
     border-radius: 10px;
@@ -8,6 +8,12 @@ export const ListButtonWrapper = styled.button`
     background-color: whitesmoke;
     transition: 0.5ms;
     overflow: hidden;
+
+    .buttonWrapper {
+        width: 100%;
+        border: none;
+        background-color: transparent;
+    }
     
     .buttonContent {
         padding: 1rem 1rem;
